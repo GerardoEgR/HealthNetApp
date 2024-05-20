@@ -1,6 +1,6 @@
 import Feature from '@/components/Feature';
 import Hero from '@/components/Hero';
-import Footer from '@/components/Footer';
+
 import LogoClouds from '@/components/LogoClouds';
 import Workshops from '@/components/Workshops';
 
@@ -11,7 +11,6 @@ export default function Home() {
       <Feature />
       <LogoClouds />
       <Workshops />
-      <Footer />
     </main>
   );
 }

@@ -32,10 +32,7 @@ const Hero = () => {
   return (
     <>
       <div className='text-gray-600 body-font w-full bg-gradient-to-t from-white to-transparent'>
-        <div
-          className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
-          aria-hidden='true'
-        >
+        <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80' aria-hidden='true'>
           <div
             className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#4496f0] to-[#0c6bd1] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]'
             style={{
@@ -59,12 +56,12 @@ const Hero = () => {
               <Link href='#certificates' className='mr-5 hover:text-gray-900 hover:underline hover:drop-shadow-[0_0_3px_rgba(0,0,0,0.5)] cursor-pointer'>Elígenos</Link>
               <Link href='#workshops' className='mr-5 hover:text-gray-900 hover:underline hover:drop-shadow-[0_0_3px_rgba(0,0,0,0.5)] cursor-pointer'>Infórmate</Link>
             </nav>
-            <button className='inline-flex items-center bg-blue-100 border border-slate-500 py-1 px-3 focus:outline-none hover:bg-blue-200 rounded text-base hover:text-gray-950 mt-4 md:mt-0'>
+            <Link href='/agenda' className='inline-flex items-center bg-blue-100 border border-slate-500 py-1 px-3 focus:outline-none hover:bg-blue-200 rounded text-base hover:text-gray-950 mt-4 md:mt-0'>
               <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' className='w-6 h-6 me-2'>
                 <path strokeLinecap='round' strokeLinejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z' />
               </svg>
               Reserva de hora
-            </button>
+            </Link>
           </div>
           <div className='bg-gradient-to-r from-transparent via-gray-500 to-transparent w-full h-px'></div>
         </header>
