@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { slides } from '../utils/Constants'
+import { slides } from '../lib/Constants'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 

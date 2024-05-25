@@ -1,4 +1,4 @@
-import { services } from '@/utils/Constants'
+import { services } from '@/lib/Constants'
 
 
 const Feature = () => {

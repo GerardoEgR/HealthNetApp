@@ -1,10 +1,18 @@
+'use client'
 import Steps from "@/components/Steps"
+import Link from "next/link"
+import { useState } from "react"
+import { steps } from "@/lib/Constants"
 
 
 export default function layoutAgenda({
   children }: {
     children: React.ReactNode
   }) {
+
+  const [currentStep, setCurrentStep] = useState(1)
+  const [complete, setComplete] = useState(false)
+
   return (
     <>
       <div
@@ -28,9 +36,27 @@ export default function layoutAgenda({
       <div className='bg-gradient-to-r from-transparent via-gray-500 to-transparent w-full h-px'></div>
       <div className="lg:container flex h-screen flex-col md:flex-row overflow-auto mx-auto">
         <div className="w-full flex-none md:w-64 border-b border-gray-400 lg:border-r lg:border-b-0 py-10">
-          <Steps />
+          <Steps currentStep={currentStep} />
         </div>
-        <div className="container grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+        <div className="container grow p-6 md:overflow-y-auto md:p-12">
+          {children}
+          <div className="mt-6 flex items-center justify-end gap-x-6">
+            <Link href="/" className="text-sm font-semibold leading-6 text-gray-900">
+              Volver
+            </Link>
+            <Link
+              href={currentStep === steps.length ? '/' : '#'}
+              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              onClick={() => {
+                currentStep === steps.length
+                  ? setComplete(true)
+                  : setCurrentStep(currentStep + 1)
+              }}
+            >
+              {currentStep === steps.length ? 'Finalizar' : 'Siguiente'}
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div
