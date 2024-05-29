@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import { slides } from '../lib/Constants'
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 const Hero = () => {
   const [activeImage, setActiveImage] = useState(0)

@@ -6,15 +6,15 @@ const Feature = () => {
     <>
       <div className='bg-gradient-to-r from-transparent via-gray-400 to-transparent w-full h-px'>
         <svg
-          viewBox="0 0 1024 1024"
-          className="absolute -z-10 -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:h-[64rem] lg:w-[64rem] lg:left-1/2 lg:top-1/4 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
-          aria-hidden="true"
+          viewBox='0 0 1024 1024'
+          className='absolute -z-10 -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:h-[64rem] lg:w-[64rem] lg:left-1/2 lg:top-1/4 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0'
+          aria-hidden='true'
         >
-          <circle cx={512} cy={512} r={512} fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fillOpacity="0.5" />
+          <circle cx={512} cy={512} r={512} fill='url(#759c1415-0410-454c-8f7c-9a820de03641)' fillOpacity='0.5' />
           <defs>
-            <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-              <stop stopColor="#4496f0" />
-              <stop offset={1} stopColor="#C3DFFE" />
+            <radialGradient id='759c1415-0410-454c-8f7c-9a820de03641'>
+              <stop stopColor='#4496f0' />
+              <stop offset={1} stopColor='#C3DFFE' />
             </radialGradient>
           </defs>
         </svg>
