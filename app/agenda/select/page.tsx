@@ -23,9 +23,6 @@ export default function SelectPage() {
 
   const handleTimeSelect = (time: string) => {
     setSelectedTime(time)
-    if (selectedDate) {
-      alert(`Cita programada para el ${selectedDate?.toLocaleDateString()} a las ${time}`)
-    }
   }
 
   if (!isMounted) {

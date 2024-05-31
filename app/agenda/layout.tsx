@@ -9,7 +9,6 @@ export default function layoutAgenda({
   children }: {
     children: React.ReactNode
   }) {
-
   const [currentStep, setCurrentStep] = useState(1)
 
   return (
@@ -34,32 +33,47 @@ export default function layoutAgenda({
       </div>
       <div className='bg-gradient-to-r from-transparent via-gray-500 to-transparent w-full h-px'></div>
       <div className='lg:container flex h-screen flex-col md:flex-row overflow-auto mx-auto'>
-        <div className='w-full flex-none md:w-64 border-b border-gray-400 lg:border-r lg:border-b-0 py-10'>
-          <Steps currentStep={currentStep} />
+        <div className='w-full flex-none md:w-72 border-b border-gray-400 lg:border-r lg:border-b-0 py-10'>
+          <Steps currentStep={currentStep} setCurrentStep={setCurrentStep} />
         </div>
         <div className='container grow p-6 md:overflow-y-auto md:p-12 flex flex-col min-h-screen'>
           {children}
-          <div className='mt-auto flex items-center justify-end gap-x-6 p-4 inset-x-0'>
-            <Link href='/' className='text-sm font-semibold leading-6 text-gray-900'>
-              Volver
-            </Link>
-            {steps.map((elem, index) => (
+          {steps.map((elem, index) => (
+            <div key={index}
+              className={`${elem.id === currentStep
+                ? 'mt-auto flex items-center justify-end gap-x-6 p-4 inset-x-0'
+                : 'hidden'
+                }`}
+            >
+              {elem.id !== 1 && (
+                <Link href={elem.pathBack}
+                  className={`${elem.id === currentStep
+                    ? 'rounded-md bg-gray-300 border border-gray-500 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600'
+                    : 'hidden'
+                    }`}
+                  onClick={() => {
+                    setCurrentStep(currentStep - 1);
+                  }}
+                >
+                  Volver
+                </Link>
+
+              )}
 
               <Link
-                key={index}
-                href={elem.path}
+                href={elem.pathNext}
                 className={`${elem.id === currentStep
-                  ? 'rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                  ? 'rounded-md bg-indigo-500 border border-indigo-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                   : 'hidden'
                   }`}
                 onClick={() => {
-                  if (currentStep !== steps.length) setCurrentStep(currentStep + 1);
+                  if (currentStep !== steps.length) setCurrentStep(currentStep + 1)
                 }}
               >
                 {currentStep === steps.length ? 'Finalizar' : 'Siguiente'}
               </Link>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
       </div>

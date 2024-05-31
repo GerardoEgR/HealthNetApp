@@ -1,6 +1,5 @@
 import { checks } from '../../lib/Constants'
 
-
 export default function Agenda() {
   return (
     <>

@@ -32,8 +32,8 @@ const Feature = () => {
           </div>
           <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-7xl'>
             <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16'>
-              {services.map((elem, index) => (
-                <div key={index} className='flex rounded-lg h-full bg-gray-200 p-8 flex-col border border-gray-400'>
+              {services.map((elem) => (
+                <div key={elem.id} className='flex rounded-lg h-full bg-gray-200 p-8 flex-col border border-gray-400'>
                   <div className='flex items-center mb-3'>
                     <div className='w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0'>
                       {elem.icon}
