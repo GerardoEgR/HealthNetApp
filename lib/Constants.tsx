@@ -186,3 +186,70 @@ export const checks = [
     title: 'PAD FONASA',
   },
 ]
+
+export const specialties = [
+  {
+    id: 1,
+    title: 'Seleccione una opción',
+  },
+  {
+    id: 2,
+    title: 'ADULTO',
+  },
+  {
+    id: 3,
+    title: 'BRONCOPULMONAR ADULTOS',
+  },
+  {
+    id: 4,
+    title: 'BRONCOPULMONAR PEDIÁTRICO',
+  },
+  {
+    id: 5,
+    title: 'CARDIOLOGÍA ADULTOS',
+  },
+  {
+    id: 6,
+    title: 'CARDIOLOGÍA PEDIÁTRICA',
+  },
+  {
+    id: 7,
+    title: 'CIRUGÍA MENOR',
+  },
+  {
+    id: 8,
+    title: 'DERMATOLOGÍA',
+  },
+  {
+    id: 9,
+    title: 'DIABETOLOGÍA ADULTOS',
+  },
+  {
+    id: 10,
+    title: 'FONOAUDIOLOGÍA',
+  },
+  {
+    id: 11,
+    title: 'GERIATRÍA',
+  },
+  {
+    id: 12,
+    title: 'GINECOLOGÍA Y OBSTETRICIA',
+  },
+  {
+    id: 13,
+    title: 'MEDICINA GENERAL',
+  },
+  {
+    id: 14,
+    title: 'NUTRICIONISTA',
+  },
+  {
+    id: 15,
+    title: 'OFTALMOLOGÍA',
+  },
+  {
+    id: 16,
+    title: 'ANESTESIOLOGÍA',
+  },
+]

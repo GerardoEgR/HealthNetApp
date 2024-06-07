@@ -23,6 +23,11 @@ export default function SelectPage() {
 
   const handleTimeSelect = (time: string) => {
     setSelectedTime(time)
+    const appointment = {
+      date: selectedDate?.toLocaleDateString(),
+      time: time
+    }
+    sessionStorage.setItem('appointment', JSON.stringify(appointment))
   }
 
   if (!isMounted) {
@@ -41,7 +46,7 @@ export default function SelectPage() {
         />
       )}
       {selectedTime && (
-        <p className='text-xl my-10'>Cita seleccionada: <span className='font-bold text-blue-500'>{selectedDate?.toLocaleDateString()} a las {selectedTime} Hrs.</span></p>
+        <p className='text-xl my-10'>Cita seleccionada para el día: <span className='font-bold text-blue-500'>{selectedDate?.toLocaleDateString()} a las {selectedTime} Hrs.</span></p>
       )}
     </div>
   )

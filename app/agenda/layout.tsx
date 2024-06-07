@@ -3,13 +3,18 @@ import Steps from '@/components/Steps'
 import Link from 'next/link'
 import { useState } from 'react'
 import { steps } from '@/lib/Constants'
+import { useFormState } from '@/store/formState'
+import { usePathname } from 'next/navigation'
 
 
 export default function layoutAgenda({
   children }: {
     children: React.ReactNode
   }) {
+  const pathname = usePathname()
   const [currentStep, setCurrentStep] = useState(1)
+  const formState = useFormState((state) => state.formState)
+  const setFormState = useFormState((state) => state.setFormState)
 
   return (
     <>
@@ -41,11 +46,11 @@ export default function layoutAgenda({
           {steps.map((elem, index) => (
             <div key={index}
               className={`${elem.id === currentStep
-                ? 'mt-auto flex items-center justify-end gap-x-6 p-4 inset-x-0'
+                ? 'mt-auto flex flex-wrap items-center justify-between gap-x-6 p-4 inset-x-0'
                 : 'hidden'
                 }`}
             >
-              {elem.id !== 1 && (
+              {elem.id !== 1 ? (
                 <Link href={elem.pathBack}
                   className={`${elem.id === currentStep
                     ? 'rounded-md bg-gray-300 border border-gray-500 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600'
@@ -57,27 +62,31 @@ export default function layoutAgenda({
                 >
                   Volver
                 </Link>
+              ) : <div></div>}
 
+              {(formState && elem.path === pathname) && (
+                <Link
+                  href={elem.pathNext}
+                  className={`${elem.id === currentStep
+                    ? 'rounded-md bg-indigo-500 border border-indigo-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                    : 'hidden'
+                    }`}
+                  onClick={() => {
+                    if (currentStep !== steps.length) setCurrentStep(currentStep + 1)
+                    currentStep === steps.length - 1 ? setFormState(true) : setFormState(false)
+                    if (elem.path === '/agenda/identification') {
+                      sessionStorage.removeItem('data')
+                      sessionStorage.removeItem('appointment')
+                    }
+                  }}
+                >
+                  {currentStep === steps.length ? 'Finalizar' : 'Siguiente'}
+                </Link>
               )}
-
-              <Link
-                href={elem.pathNext}
-                className={`${elem.id === currentStep
-                  ? 'rounded-md bg-indigo-500 border border-indigo-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                  : 'hidden'
-                  }`}
-                onClick={() => {
-                  if (currentStep !== steps.length) setCurrentStep(currentStep + 1)
-                }}
-              >
-                {currentStep === steps.length ? 'Finalizar' : 'Siguiente'}
-              </Link>
             </div>
           ))}
         </div>
-
       </div>
-
       <div
         className='absolute inset-x-0 bottom-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:bottom-[calc(100%-70rem)]'
         aria-hidden='true'
@@ -90,7 +99,7 @@ export default function layoutAgenda({
           }}
         />
       </div>
-      <footer className='flex w-full flex-col items-center gap-x-12 border-t border-gray-400 py-6 text-center md:justify-between bg-blue-200 px-24'>
+      <footer className='flex w-full flex-col items-center gap-x-12 border-2 border-blue-200 border-t-gray-400 py-6 text-center md:justify-between bg-blue-200 px-24'>
         &copy; 2024 HealthNet
       </footer>
     </>
