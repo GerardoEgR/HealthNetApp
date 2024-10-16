@@ -1,28 +1,37 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useFormState } from '@/store/formState'
-
-interface UserData {
-  rut: string
-  nombre: string
-  apellido: string
-  email: string
-  area: string
-  especialidad: string
-  centroAtencion: string
-}
-
-interface Appointment {
-
-  date: string
-  time: string
-}
-
-interface AppointmentData extends UserData, Appointment { }
+import { Appointment, AppointmentData, UserData } from '@/lib/interfaces'
+import axios from 'axios'
 
 export default function IdentificationPage() {
   const setFormState = useFormState((state) => state.setFormState)
   const [appointmentInfoConfirm, setAppointmentInfoConfirm] = useState<AppointmentData | null>(null)
+
+  const handleAppointmentConfirm = async () => {
+    if (appointmentInfoConfirm) {
+
+      try {
+        const res = await fetch('/api/appointment/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(appointmentInfoConfirm)
+        }).then((res) => res.json())
+
+
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        console.log('Success:', res);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  }
 
   useEffect(() => {
     const userData = sessionStorage.getItem('data')
@@ -43,7 +52,10 @@ export default function IdentificationPage() {
         date: appointmentJson.date,
         time: appointmentJson.time
       }
+
       setAppointmentInfoConfirm(appointmentData)
+      // handleAppointmentConfirm()
+
     } else {
       if (!userData) {
         console.error('No user data found in sessionStorage')
@@ -118,6 +130,7 @@ export default function IdentificationPage() {
         <button className='inline-flex w-full justify-center items-center px-3 py-2 mt-10 text-sm font-medium text-center text-white bg-blue-600 rounded-lg border border-blue-800 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700'
           onClick={() => {
             setFormState(true)
+            handleAppointmentConfirm()
           }}>
           Confirmar Hora
         </button>

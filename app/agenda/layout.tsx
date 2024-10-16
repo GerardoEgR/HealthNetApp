@@ -6,7 +6,6 @@ import { steps } from '@/lib/Constants'
 import { useFormState } from '@/store/formState'
 import { usePathname } from 'next/navigation'
 
-
 export default function layoutAgenda({
   children }: {
     children: React.ReactNode
@@ -68,7 +67,7 @@ export default function layoutAgenda({
                 <Link
                   href={elem.pathNext}
                   className={`${elem.id === currentStep
-                    ? 'rounded-md bg-indigo-500 border border-indigo-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                    ? 'rounded-md bg-blue-500 border border-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
                     : 'hidden'
                     }`}
                   onClick={() => {
