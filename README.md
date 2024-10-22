@@ -4,39 +4,21 @@
 
 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# HealthNetApp.
 
-## Getting Started
 
-First, run the development server:
+## 🚀 Descripción del Proyecto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Aplicación Web que permite a los usuarios realizar la reserva de horas médicas, completando formularios en una secuencia de pasos, para posteriormente dar la confirmación de la reserva, una vez que se realizo la persistencia de la información en la base de datos. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Next.JS, React, Tailwind CSS, Typescript, Zustand, React-Hook-Form, react-calendar, Prisma, PostgreSQL.**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Recursos Adicionales
 
-## Learn More
+Para obtener más información sobre Next.js, consulta los siguientes recursos:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js Documentation](https://nextjs.org/docs) - Características y API de Next.js.
+- [Learn Next.js](https://nextjs.org/learn) - Tutorial interactivo de Next.js.
+- [the Next.js GitHub repository](https://github.com/vercel/next.js/) Repositorio oficial.
